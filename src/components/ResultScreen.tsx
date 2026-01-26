@@ -23,19 +23,25 @@ const OneDaySchedule: React.FC<{ schedule: Result['schedule'] }> = ({ schedule }
 
     return (
         <div className="schedule-container">
-            <h3 className="schedule-title">ONE DAY SCHEDULE</h3>
-            <div className="timeline">
+            <h3 className="schedule-title">One Day Schedule</h3>
+            <div className="schedule-grid">
                 {schedule.map((item, index) => (
                     <motion.div
                         key={index}
-                        className="timeline-item"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.8 + index * 0.1 }}
+                        className="schedule-row"
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-10%" }}
+                        transition={{ delay: index * 0.1 }}
                     >
-                        <div className="timeline-time">{item.time}</div>
-                        <div className="timeline-marker"></div>
-                        <div className="timeline-content">{item.description}</div>
+                        <div className="schedule-time">
+                            <div className="time-sticky">
+                                <span className="time-text">{item.time}</span>
+                            </div>
+                        </div>
+                        <div className="schedule-content">
+                            <p className="schedule-desc">{item.description}</p>
+                        </div>
                     </motion.div>
                 ))}
             </div>

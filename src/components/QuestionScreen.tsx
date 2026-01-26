@@ -49,18 +49,19 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({ question, onOpti
                     ))}
                 </div>
 
-                {onBack && (
+                <div style={{ marginTop: '2rem', minHeight: '30px', display: 'flex', justifyContent: 'center' }}>
                     <motion.button
                         className="btn-back"
                         onClick={onBack}
                         variants={itemVariants}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.6 }}
-                        whileHover={{ opacity: 1 }}
+                        animate={{ opacity: onBack ? 0.6 : 0, pointerEvents: onBack ? 'auto' : 'none' }}
+                        whileHover={{ opacity: onBack ? 1 : 0 }}
+                        style={{ cursor: onBack ? 'pointer' : 'default' }}
                     >
                         ← 戻る
                     </motion.button>
-                )}
+                </div>
             </div>
         </motion.div>
     );
