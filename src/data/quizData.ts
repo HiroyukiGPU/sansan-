@@ -1,4 +1,82 @@
-import type { Question, Result } from './types';
+import type { Question, Result, ScheduleItem } from './types';
+
+// Helper to create schedules based on role type
+const getSchedule = (roleType: 'PdM' | 'Sales' | 'Legal' | 'CS' | 'Marketing' | 'BX' | 'DataOps' | 'Design'): ScheduleItem[] => {
+    switch (roleType) {
+        case 'PdM':
+            return [
+                { time: '10:00', description: '開発チームとの朝会・進捗確認' },
+                { time: '11:00', description: 'ユーザーインタビューの分析・要件定義' },
+                { time: '13:00', description: 'ランチ（同僚と近くのカフェへ）' },
+                { time: '14:00', description: '次期機能の仕様策定ミーティング' },
+                { time: '16:00', description: 'デザイナーとのUI/UXレビュー' },
+                { time: '18:00', description: '翌日のタスク整理・退社' }
+            ];
+        case 'Sales':
+            return [
+                { time: '09:30', description: 'メールチェック・訪問準備' },
+                { time: '10:30', description: 'クライアント訪問（商談）' },
+                { time: '12:00', description: '移動中にランチ' },
+                { time: '13:30', description: 'オンラインでの製品デモ' },
+                { time: '15:00', description: '社内会議・営業戦略の共有' },
+                { time: '17:00', description: '提案資料の作成・顧客フォロー' }
+            ];
+        case 'Legal':
+            return [
+                { time: '10:00', description: '契約書のリーガルチェック' },
+                { time: '11:30', description: '事業部からの法律相談対応' },
+                { time: '13:00', description: 'ランチ' },
+                { time: '14:00', description: '新規事業の法的リスク検討会' },
+                { time: '16:00', description: '社内規定の改定作業' },
+                { time: '18:00', description: '最新の法改正情報のキャッチアップ' }
+            ];
+        case 'CS':
+            return [
+                { time: '09:30', description: 'カスタマーサポート定例MTG' },
+                { time: '10:30', description: '顧客からの問い合わせ対応' },
+                { time: '12:00', description: 'ランチ' },
+                { time: '13:00', description: 'オンボーディング支援（Web会議）' },
+                { time: '15:00', description: '活用促進のための施策検討' },
+                { time: '17:00', description: 'ユーザーの声（VOC）の集計・共有' }
+            ];
+        case 'Marketing':
+            return [
+                { time: '10:00', description: '広告運用の数値確認・分析' },
+                { time: '11:00', description: 'イベント企画ミーティング' },
+                { time: '13:00', description: 'ランチ' },
+                { time: '14:00', description: 'コンテンツ記事の執筆・編集' },
+                { time: '16:00', description: 'マーケティングオートメーションの設定' },
+                { time: '18:00', description: 'キャンペーン効果測定レポート作成' }
+            ];
+        case 'BX':
+            return [
+                { time: '10:00', description: 'ブランドガイドラインの策定MTG' },
+                { time: '11:30', description: 'ノベルティグッズのデザイン検討' },
+                { time: '13:00', description: 'ランチ' },
+                { time: '14:00', description: '社内報の取材・撮影' },
+                { time: '16:00', description: 'オフィス空間のデザイン監修' },
+                { time: '18:00', description: 'イベント設営の準備' }
+            ];
+        case 'DataOps':
+            return [
+                { time: '10:00', description: 'データ化進捗のモニタリング' },
+                { time: '11:00', description: 'オペレーション改善の施策検討' },
+                { time: '13:00', description: 'ランチ' },
+                { time: '14:00', description: 'AIエンジニアとの連携MTG' },
+                { time: '16:00', description: '品質管理レポートの作成' },
+                { time: '18:00', description: 'オペレーター向けマニュアル更新' }
+            ];
+        case 'Design':
+            return [
+                { time: '10:00', description: 'デザイン定例・タスク確認' },
+                { time: '11:00', description: '新規画面のUIデザイン作成' },
+                { time: '13:00', description: 'ランチ' },
+                { time: '14:00', description: 'プロトタイプ作成・ユーザーテスト' },
+                { time: '16:00', description: 'エンジニアへのデザイン引き継ぎ' },
+                { time: '18:00', description: 'デザインシステムの更新' }
+            ];
+    }
+};
 
 export const questions: Question[] = [
     // LEVEL 1
@@ -134,6 +212,7 @@ export const results: Record<string, Result> = {
         description: '役割：プロダクトの新機能や機能変更を考える司令塔。顧客の課題とビジネス目標をつなぐ人。',
         quote: '“ユーザーと事業の間に立つ、意思決定の中心”',
         tags: ['創造型', 'リード型', '前線系', 'ロジック系'],
+        schedule: getSchedule('PdM'),
     },
     B: {
         id: 'B',
@@ -141,14 +220,15 @@ export const results: Record<string, Result> = {
         description: '役割：企業にSansanを導入してもらうために提案・交渉を行う。顧客の課題を理解し、導入のきっかけをつくる。',
         quote: '”一番最初の出会いをつくる”',
         tags: ['創造型', 'リード型', '前線系', '共感系'],
+        schedule: getSchedule('Sales'),
     },
     C: {
         id: 'C',
         title: '法務部',
         description: '役割：契約やリスク管理などを通じて、Sansanのビジネスを裏から支える。ルールとビジネスを両立させる仕事。',
         quote: '”攻めも守りもこなす、会社の番人”',
-        tags: ['創造型', '伴走型', 'バックで支える系', 'ロジック系'], // Derived from Q4B->C (Logic) // Wait, Q4B(C) is logic from prompt "A is logic" (C matches Logic position sort of, let's verify)
-        // Prompt Q4B: C=Logic, D=Empathy. Yes. 
+        tags: ['創造型', '伴走型', 'バックで支える系', 'ロジック系'],
+        schedule: getSchedule('Legal'),
     },
     D: {
         id: 'D',
@@ -156,17 +236,15 @@ export const results: Record<string, Result> = {
         description: '役割：Sansanを導入した顧客に寄り添い、プロダクトの価値を最大化するための支援、伴走を行う',
         quote: '”顧客とゴールまで一緒に走るパートナー”',
         tags: ['創造型', '伴走型', 'バックで支える系', '共感系'],
+        schedule: getSchedule('CS'),
     },
     E: {
         id: 'E',
         title: 'マーケティング部',
         description: '役割：イベントやコンテンツを通じてSansanを広め、興味を持ってもらうための最初の接点をつくる。',
         quote: '”まだ知らない誰かに届ける、Sansanの語り部”',
-        tags: ['改善・洗練型', 'リード型', '前線系', 'ロジック系'], // Wait check Q3C/Q4C paths
-        // Path: Q1B -> Q2B/C=Lead? Wait Q2B says C=Lead. Yes.
-        // Q3C -> E=Front. Yes.
-        // Q4C -> E=Logic? Prompt Q4C: E=Logic, F=Empathy. Yes.
-        // Correct.
+        tags: ['改善・洗練型', 'リード型', '前線系', 'ロジック系'],
+        schedule: getSchedule('Marketing'),
     },
     F: {
         id: 'F',
@@ -174,6 +252,7 @@ export const results: Record<string, Result> = {
         description: '役割：ノベルティやブランド表現など、Sansanを「見せる」部分を担当。対外的な印象や世界観をつくる。',
         quote: '”Sansanらしさをデザインで伝えるチーム”',
         tags: ['改善・洗練型', 'リード型', '前線系', '共感系'],
+        schedule: getSchedule('BX'),
     },
     G: {
         id: 'G',
@@ -181,6 +260,7 @@ export const results: Record<string, Result> = {
         description: '役割：名刺などの情報を正確にデータ化するプロセスを管理する仕事。AIと人をどう組み合わせるかを設計する。',
         quote: '“AIと人を最適配置する、データ化の設計者”',
         tags: ['改善・洗練型', 'リード型', 'バックで支える系', 'ロジック系'],
+        schedule: getSchedule('DataOps'),
     },
     H: {
         id: 'H',
@@ -188,13 +268,15 @@ export const results: Record<string, Result> = {
         description: '役割：プロダクトのUIや画面を設計するチーム。使いやすさ・わかりやすさを追求する。',
         quote: '“ユーザー体験を設計する”',
         tags: ['改善・洗練型', 'リード型', 'バックで支える系', '共感系'],
+        schedule: getSchedule('Design'),
     },
     I: {
         id: 'I',
         title: 'Product Manager (PdM)',
         description: '役割：プロダクトの新機能や機能変更を考える司令塔。顧客の課題とビジネス目標をつなぐ人。',
         quote: '“ユーザーと事業の間に立つ、意思決定の中心”',
-        tags: ['改善・洗練型', '伴走型', '前線系', 'ロジック系'], // Logic check: Q4E -> I=Logic.
+        tags: ['改善・洗練型', '伴走型', '前線系', 'ロジック系'],
+        schedule: getSchedule('PdM'),
     },
     J: {
         id: 'J',
@@ -202,13 +284,15 @@ export const results: Record<string, Result> = {
         description: '役割：イベントやコンテンツを通じてSansanを広め、興味を持ってもらうための最初の接点をつくる。',
         quote: '”まだ知らない誰かに届ける、Sansanの語り部”',
         tags: ['改善・洗練型', '伴走型', '前線系', '共感系'],
+        schedule: getSchedule('Marketing'),
     },
     K: {
         id: 'K',
         title: 'データ化オペレーションマネージャー',
         description: '役割：名刺などの情報を正確にデータ化するプロセスを管理する仕事。AIと人をどう組み合わせるかを設計する。',
         quote: '“AIと人を最適配置する、データ化の設計者”',
-        tags: ['改善・洗練型', '伴走型', 'バックで支える系', 'ロジック系'], // Q4F -> K=Logic
+        tags: ['改善・洗練型', '伴走型', 'バックで支える系', 'ロジック系'],
+        schedule: getSchedule('DataOps'),
     },
     L: {
         id: 'L',
@@ -216,21 +300,15 @@ export const results: Record<string, Result> = {
         description: '役割：契約やリスク管理などを通じて、Sansanのビジネスを裏から支える。ルールとビジネスを両立させる仕事。',
         quote: '”攻めも守りもこなす、会社の番人”',
         tags: ['改善・洗練型', '伴走型', 'バックで支える系', '共感系'],
+        schedule: getSchedule('Legal'),
     },
     M: {
         id: 'M',
         title: '営業部',
         description: '役割：企業にSansanを導入してもらうために提案・交渉を行う。顧客の課題を理解し、導入のきっかけをつくる。',
         quote: '”一番最初の出会いをつくる”',
-        tags: ['創造型', 'リード型', 'バック... wait'], // Check path Q4G.
-        // Q1?
-        // Let's trace Q4G parent.
-        // Q3D -> G (Front?). No loop back.
-        // Path to Q4G: Q1B -> Q2B(D=Support) -> Q3D(G=Front) -> Q4G.
-        // Q2B(D) = Support (伴走型).
-        // Q3D(G) = Front (前線系).
-        // Q4G(M) = Logic (ロジック系).
-        // Result M = Sales.
+        tags: ['創造型', 'リード型', 'バックで支える系', 'ロジック系'],
+        schedule: getSchedule('Sales'),
     },
     N: {
         id: 'N',
@@ -238,6 +316,7 @@ export const results: Record<string, Result> = {
         description: '役割：ノベルティやブランド表現など、Sansanを「見せる」部分を担当。対外的な印象や世界観をつくる。',
         quote: '”Sansanらしさをデザインで伝えるチーム”',
         tags: [],
+        schedule: getSchedule('BX'),
     },
     O: {
         id: 'O',
@@ -245,6 +324,7 @@ export const results: Record<string, Result> = {
         description: '役割：プロダクトのUIや画面を設計するチーム。使いやすさ・わかりやすさを追求する。',
         quote: '“ユーザー体験を設計する”',
         tags: [],
+        schedule: getSchedule('Design'),
     },
     P: {
         id: 'P',
@@ -252,5 +332,6 @@ export const results: Record<string, Result> = {
         description: '役割：Sansanを導入した顧客に寄り添い、プロダクトの価値を最大化するための支援、伴走を行う',
         quote: '”顧客とゴールまで一緒に走るパートナー”',
         tags: [],
+        schedule: getSchedule('CS'),
     },
 };
