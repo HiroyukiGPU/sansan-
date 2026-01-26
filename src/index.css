@@ -291,6 +291,7 @@ body {
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 1.5rem;
+  align-items: start;
   position: relative;
   padding-bottom: 3rem;
 }
@@ -349,21 +350,15 @@ body {
   color: var(--secondary-color);
 }
 
-/* Content Column */
 .schedule-content {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   border: 1px solid #f0f0f0;
-  transition: transform 0.3s;
 }
 
-.schedule-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary-color);
-}
+/* Removed hover effect */
 
 .schedule-desc {
   font-size: 1rem;
