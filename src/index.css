@@ -29,6 +29,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* App Container */
 .app-container {
   width: 100%;
   max-width: 600px;
@@ -80,7 +81,8 @@ body {
 /* Buttons */
 .btn-primary,
 .btn-secondary,
-.btn-back {
+.btn-back,
+.btn-back-absolute {
   font-weight: 700;
   border: none;
   border-radius: 50px;
@@ -106,20 +108,26 @@ body {
   margin-top: 1rem;
 }
 
-.btn-back {
+/* Absolute Back Button */
+.btn-back-absolute {
+  position: absolute;
+  top: -50px;
+  /* Above the card */
+  left: 0;
   background: transparent;
-  color: #888;
+  color: var(--secondary-color);
   font-size: 0.9rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  transition: opacity 0.3s;
+  z-index: 10;
 }
 
-.btn-back:hover {
+.btn-back-absolute:hover {
   background: rgba(0, 0, 0, 0.05);
-  color: #555;
 }
 
 /* Question Screen */
@@ -130,6 +138,8 @@ body {
   box-shadow: 0 20px 60px rgba(0, 50, 100, 0.08);
   width: 100%;
   backdrop-filter: blur(20px);
+  position: relative;
+  /* Ensure context for content */
 }
 
 .question-text {
@@ -350,6 +360,7 @@ body {
   color: var(--secondary-color);
 }
 
+/* Content Column */
 .schedule-content {
   background: white;
   border-radius: 12px;
@@ -357,8 +368,6 @@ body {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   border: 1px solid #f0f0f0;
 }
-
-/* Removed hover effect */
 
 .schedule-desc {
   font-size: 1rem;
@@ -387,6 +396,12 @@ body {
     width: 100%;
     font-size: 1.1rem;
     padding: 1rem;
+  }
+
+  /* Absolute Back Button Mobile */
+  .btn-back-absolute {
+    top: -40px;
+    font-size: 0.8rem;
   }
 
   .question-screen .question-content {

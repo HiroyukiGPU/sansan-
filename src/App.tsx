@@ -13,8 +13,10 @@ function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string>('Q1');
   const [currentResultId, setCurrentResultId] = useState<string | null>(null);
   const [history, setHistory] = useState<string[]>([]);
+  const [direction, setDirection] = useState<number>(1); // 1: forward, -1: back
 
   const handleStart = () => {
+    setDirection(1);
     setStep('quiz');
     setCurrentQuestionId('Q1');
     setCurrentResultId(null);
@@ -28,6 +30,7 @@ function App() {
     const selectedOption = currentQuestion.options.find((opt) => opt.id === optionId);
     if (!selectedOption) return;
 
+    setDirection(1);
     // Add current question to history before moving forward
     setHistory((prev) => [...prev, currentQuestionId]);
 
@@ -41,18 +44,20 @@ function App() {
 
   const handleBack = () => {
     if (history.length === 0) {
-      // If at start of quiz, go back to start screen
+      setDirection(-1);
       setStep('start');
       return;
     }
 
+    setDirection(-1);
     const prevQuestionId = history[history.length - 1];
     setHistory((prev) => prev.slice(0, -1));
     setCurrentQuestionId(prevQuestionId);
-    setStep('quiz'); // Ensure we are in quiz state (useful if returning from result, though currently result handles restart)
+    setStep('quiz');
   };
 
   const handleRestart = () => {
+    setDirection(1);
     setStep('start');
     setCurrentQuestionId('Q1');
     setCurrentResultId(null);
@@ -64,7 +69,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" custom={direction}>
         {step === 'start' && (
           <StartScreen key="start" onStart={handleStart} />
         )}
@@ -75,6 +80,7 @@ function App() {
             question={currentQuestion}
             onOptionSelect={handleOptionSelect}
             onBack={history.length > 0 ? handleBack : undefined}
+            direction={direction}
           />
         )}
 

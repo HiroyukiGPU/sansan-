@@ -6,12 +6,23 @@ interface QuestionScreenProps {
     question: Question;
     onOptionSelect: (optionId: string) => void;
     onBack?: () => void;
+    direction?: number;
 }
 
 const containerVariants = {
-    initial: { opacity: 0, x: 50 },
-    animate: { opacity: 1, x: 0, transition: { staggerChildren: 0.1 } },
-    exit: { opacity: 0, x: -50 },
+    initial: (direction: number) => ({
+        opacity: 0,
+        x: direction > 0 ? 50 : -50,
+    }),
+    animate: {
+        opacity: 1,
+        x: 0,
+        transition: { staggerChildren: 0.1 }
+    },
+    exit: (direction: number) => ({
+        opacity: 0,
+        x: direction < 0 ? 50 : -50,
+    }),
 };
 
 const itemVariants = {
@@ -19,10 +30,11 @@ const itemVariants = {
     animate: { opacity: 1, y: 0 },
 };
 
-export const QuestionScreen: React.FC<QuestionScreenProps> = ({ question, onOptionSelect, onBack }) => {
+export const QuestionScreen: React.FC<QuestionScreenProps> = ({ question, onOptionSelect, onBack, direction = 1 }) => {
     return (
         <motion.div
             className="screen question-screen"
+            custom={direction}
             variants={containerVariants}
             initial="initial"
             animate="animate"
@@ -49,19 +61,18 @@ export const QuestionScreen: React.FC<QuestionScreenProps> = ({ question, onOpti
                     ))}
                 </div>
 
-                <div style={{ marginTop: '2rem', minHeight: '30px', display: 'flex', justifyContent: 'center' }}>
+                {onBack && (
                     <motion.button
-                        className="btn-back"
+                        className="btn-back-absolute"
                         onClick={onBack}
-                        variants={itemVariants}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: onBack ? 0.6 : 0, pointerEvents: onBack ? 'auto' : 'none' }}
-                        whileHover={{ opacity: onBack ? 1 : 0 }}
-                        style={{ cursor: onBack ? 'pointer' : 'default' }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        whileHover={{ scale: 1.05 }}
                     >
                         ← 戻る
                     </motion.button>
-                </div>
+                )}
             </div>
         </motion.div>
     );
