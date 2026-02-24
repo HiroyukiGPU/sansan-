@@ -1,7 +1,6 @@
-import type { Question, Result, ScheduleItem } from './types';
+// --- Data Definitions ---
 
-// Helper to create schedules based on role type
-const getSchedule = (roleType: 'PdM' | 'Sales' | 'Legal' | 'CS' | 'Marketing' | 'BX' | 'DataOps' | 'Design'): ScheduleItem[] => {
+const getSchedule = (roleType) => {
     switch (roleType) {
         case 'PdM':
             return [
@@ -78,7 +77,7 @@ const getSchedule = (roleType: 'PdM' | 'Sales' | 'Legal' | 'CS' | 'Marketing' | 
     }
 };
 
-export const questions: Question[] = [
+const questions = [
     // LEVEL 1
     {
         id: 'Q1',
@@ -205,7 +204,7 @@ export const questions: Question[] = [
     },
 ];
 
-export const results: Record<string, Result> = {
+const results = {
     A: {
         id: 'A',
         title: 'Product Manager (PdM)',
@@ -335,3 +334,169 @@ export const results: Record<string, Result> = {
         schedule: getSchedule('CS'),
     },
 };
+
+// --- App Logic ---
+
+let currentQuestionId = 'Q1';
+let history = [];
+
+// DOM Elements
+const screens = {
+    start: document.getElementById('start-screen'),
+    question: document.getElementById('question-screen'),
+    result: document.getElementById('result-screen'),
+};
+
+const buttons = {
+    start: document.getElementById('start-btn'),
+    restart: document.getElementById('restart-btn'),
+    back: document.getElementById('back-btn'),
+};
+
+const questionElements = {
+    text: document.getElementById('question-text'),
+    options: document.getElementById('options-container'),
+};
+
+const resultElements = {
+    title: document.getElementById('result-title'),
+    quote: document.getElementById('result-quote'),
+    description: document.getElementById('result-description'),
+    tags: document.getElementById('tags-container'),
+    schedule: document.getElementById('schedule-wrapper'),
+};
+
+// Utils
+function switchScreen(screenName) {
+    Object.values(screens).forEach(screen => {
+        screen.classList.add('hidden');
+        screen.classList.remove('active'); // For any future CSS animations
+    });
+    screens[screenName].classList.remove('hidden');
+
+    // Simple fade in effect
+    screens[screenName].style.opacity = 0;
+    setTimeout(() => {
+        screens[screenName].style.opacity = 1;
+    }, 10);
+}
+
+function renderQuestion(questionId) {
+    const question = questions.find(q => q.id === questionId);
+    if (!question) return;
+
+    questionElements.text.textContent = question.text;
+    questionElements.options.innerHTML = '';
+
+    question.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `
+            <span class="option-label">${option.id}</span>
+            <span class="option-text">${option.text}</span>
+        `;
+        btn.onclick = () => handleOptionSelect(option);
+        questionElements.options.appendChild(btn);
+    });
+
+    // Show/Hide back button
+    if (history.length > 0) {
+        buttons.back.style.display = 'inline-flex';
+    } else {
+        buttons.back.style.display = 'none';
+    }
+}
+
+function renderResult(resultId) {
+    const result = results[resultId];
+    if (!result) return;
+
+    resultElements.title.textContent = result.title;
+    resultElements.quote.textContent = result.quote;
+    resultElements.description.textContent = result.description;
+
+    // Render tags
+    resultElements.tags.innerHTML = '';
+    if (result.tags) {
+        result.tags.forEach(tag => {
+            const span = document.createElement('span');
+            span.className = 'tag';
+            span.textContent = tag;
+            resultElements.tags.appendChild(span);
+        });
+    }
+
+    // Render schedule
+    resultElements.schedule.innerHTML = '';
+    if (result.schedule && result.schedule.length > 0) {
+        const scheduleContainer = document.createElement('div');
+        scheduleContainer.className = 'schedule-container';
+
+        const scheduleTitle = document.createElement('h3');
+        scheduleTitle.className = 'schedule-title';
+        scheduleTitle.textContent = 'One Day Schedule';
+        scheduleContainer.appendChild(scheduleTitle);
+
+        const scheduleGrid = document.createElement('div');
+        scheduleGrid.className = 'schedule-grid';
+
+        result.schedule.forEach((item, index) => {
+            const row = document.createElement('div');
+            row.className = 'schedule-row';
+            row.style.animationDelay = `${index * 0.1}s`; // Stagger animation
+
+            row.innerHTML = `
+                <div class="schedule-time">
+                    <div class="time-sticky">
+                        <span class="time-text">${item.time}</span>
+                    </div>
+                </div>
+                <div class="schedule-content">
+                    <p class="schedule-desc">${item.description}</p>
+                </div>
+            `;
+            scheduleGrid.appendChild(row);
+        });
+
+        scheduleContainer.appendChild(scheduleGrid);
+        resultElements.schedule.appendChild(scheduleContainer);
+    }
+}
+
+// Event Handlers
+function handleStart() {
+    currentQuestionId = 'Q1';
+    history = [];
+    renderQuestion(currentQuestionId);
+    switchScreen('question');
+}
+
+function handleOptionSelect(option) {
+    history.push(currentQuestionId);
+
+    if (option.resultId) {
+        renderResult(option.resultId);
+        switchScreen('result');
+    } else if (option.nextQuestionId) {
+        currentQuestionId = option.nextQuestionId;
+        renderQuestion(currentQuestionId);
+    }
+}
+
+function handleBack() {
+    if (history.length === 0) {
+        switchScreen('start');
+        return;
+    }
+    const prevId = history.pop();
+    currentQuestionId = prevId;
+    renderQuestion(currentQuestionId);
+}
+
+// Initial Setup
+buttons.start.addEventListener('click', handleStart);
+buttons.restart.addEventListener('click', handleStart);
+buttons.back.addEventListener('click', handleBack);
+
+// Start at start screen
+switchScreen('start');

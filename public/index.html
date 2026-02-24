@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sansan Career Diagnosis</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="app-container" id="app">
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen start-screen">
+            <div class="content">
+                <h1 class="title">
+                    <span>Sansan</span>
+                    <br />
+                    Career Diagnosis
+                </h1>
+                <p class="subtitle">あなたのキャリアタイプを診断します</p>
+                <button id="start-btn" class="btn-primary">
+                    診断を始める
+                </button>
+            </div>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question-screen" class="screen question-screen hidden">
+            <div class="question-content">
+                <h2 id="question-text" class="question-text">
+                    <!-- Question text injected by JS -->
+                </h2>
+
+                <div id="options-container" class="options-container">
+                    <!-- Options injected by JS -->
+                </div>
+
+                <button id="back-btn" class="btn-back-absolute" style="display: none;">
+                    ← 戻る
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen result-screen hidden">
+            <div class="result-card">
+                <div class="result-header">
+                    <span class="result-label">あなたのタイプは...</span>
+                    <h2 id="result-title" class="result-title"><!-- Result Title --></h2>
+                </div>
+
+                <div id="result-quote" class="result-quote">
+                    <!-- Result Quote -->
+                </div>
+
+                <div class="result-body">
+                    <p id="result-description" class="result-description"><!-- Description --></p>
+
+                    <div id="tags-container" class="tags-container">
+                        <!-- Tags injected by JS -->
+                    </div>
+
+                    <div id="schedule-wrapper">
+                        <!-- Schedule injected by JS -->
+                    </div>
+                </div>
+
+                <button id="restart-btn" class="btn-secondary">
+                    もう一度診断する
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
