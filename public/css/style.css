@@ -177,6 +177,7 @@ body {
     text-align: left;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
+    min-height: 100px; /* 高さを統一 */
 }
 
 .option-btn:hover {
