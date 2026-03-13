@@ -4,66 +4,65 @@ const getSchedule = (roleType) => {
     switch (roleType) {
         case 'PdM':
             return [
-                { time: '10:00', description: '開発チームとの朝会・進捗確認' },
-                { time: '11:00', description: 'ユーザーインタビューの分析・要件定義' },
-                { time: '13:00', description: 'ランチ（同僚と近くのカフェへ）' },
-                { time: '14:00', description: '次期機能の仕様策定ミーティング' },
-                { time: '16:00', description: 'デザイナーとのUI/UXレビュー' },
-                { time: '18:00', description: '翌日のタスク整理・退社' }
+                { time: '09:30', description: 'Slackチェック' },
+                { time: '10:00', description: '開発チーム定例' },
+                { time: '11:00', description: '要件定義・企画作成' },
+                { time: '13:00', description: 'エンジニア・デザイナーとのMTG' },
+                { time: '15:00', description: 'ユーザーヒアリング' },
+                { time: '17:00', description: 'プロジェクト論点整理' }
             ];
         case 'Sales':
             return [
-                { time: '09:30', description: 'メールチェック・訪問準備' },
-                { time: '10:30', description: 'クライアント訪問（商談）' },
-                { time: '12:00', description: '移動中にランチ' },
-                { time: '13:30', description: 'オンラインでの製品デモ' },
-                { time: '15:00', description: '社内会議・営業戦略の共有' },
-                { time: '17:00', description: '提案資料の作成・顧客フォロー' }
+                { time: '09:00', description: '朝会' },
+                { time: '10:00', description: '顧客商談' },
+                { time: '13:00', description: '顧客商談' },
+                { time: '17:00', description: '顧客対応' },
+                { time: '18:00', description: '提案書作成・資料作成' }
             ];
         case 'Legal':
             return [
-                { time: '10:00', description: '契約書のリーガルチェック' },
-                { time: '11:30', description: '事業部からの法律相談対応' },
-                { time: '13:00', description: 'ランチ' },
-                { time: '14:00', description: '新規事業の法的リスク検討会' },
-                { time: '16:00', description: '社内規定の改定作業' },
-                { time: '18:00', description: '最新の法改正情報のキャッチアップ' }
+                { time: '09:30', description: '朝会' },
+                { time: '10:00', description: 'メール・Slack確認' },
+                { time: '11:00', description: '契約レビュー・依頼対応' },
+                { time: '13:00', description: '事業部MTG' },
+                { time: '15:00', description: '契約書作成' },
+                { time: '16:00', description: '法令調査・相談対応' }
             ];
         case 'CS':
             return [
-                { time: '09:30', description: 'カスタマーサポート定例MTG' },
-                { time: '10:30', description: '顧客からの問い合わせ対応' },
-                { time: '12:00', description: 'ランチ' },
-                { time: '13:00', description: 'オンボーディング支援（Web会議）' },
-                { time: '15:00', description: '活用促進のための施策検討' },
-                { time: '17:00', description: 'ユーザーの声（VOC）の集計・共有' }
+                { time: '09:00', description: '朝会' },
+                { time: '10:00', description: '顧客アポイント・資料作成' },
+                { time: '13:00', description: '顧客アポイント' },
+                { time: '15:00', description: '顧客アポイント' },
+                { time: '17:00', description: '社内MTG・資料作成' }
             ];
         case 'Marketing':
             return [
-                { time: '10:00', description: '広告運用の数値確認・分析' },
-                { time: '11:00', description: 'イベント企画ミーティング' },
-                { time: '13:00', description: 'ランチ' },
-                { time: '14:00', description: 'コンテンツ記事の執筆・編集' },
-                { time: '16:00', description: 'マーケティングオートメーションの設定' },
-                { time: '18:00', description: 'キャンペーン効果測定レポート作成' }
+                { time: '09:30', description: '朝会' },
+                { time: '10:00', description: 'メール対応・タスク整理' },
+                { time: '11:00', description: '企画検討・資料作成' },
+                { time: '13:00', description: '資料作成・MTG準備' },
+                { time: '14:00', description: '社内MTG' },
+                { time: '16:00', description: '作業タスク' },
+                { time: '17:00', description: '社内レビュー' }
             ];
         case 'BX':
             return [
-                { time: '10:00', description: 'ブランドガイドラインの策定MTG' },
-                { time: '11:30', description: 'ノベルティグッズのデザイン検討' },
-                { time: '13:00', description: 'ランチ' },
-                { time: '14:00', description: '社内報の取材・撮影' },
-                { time: '16:00', description: 'オフィス空間のデザイン監修' },
-                { time: '18:00', description: 'イベント設営の準備' }
+                { time: '10:00', description: '朝会' },
+                { time: '10:30', description: '制作物すり合わせMTG' },
+                { time: '11:30', description: '制作要件整理・デザイン作業' },
+                { time: '13:00', description: '制作作業' },
+                { time: '14:30', description: '社内MTG' },
+                { time: '16:00', description: 'デザイン作業' }
             ];
         case 'DataOps':
             return [
-                { time: '10:00', description: 'データ化進捗のモニタリング' },
-                { time: '11:00', description: 'オペレーション改善の施策検討' },
-                { time: '13:00', description: 'ランチ' },
-                { time: '14:00', description: 'AIエンジニアとの連携MTG' },
-                { time: '16:00', description: '品質管理レポートの作成' },
-                { time: '18:00', description: 'オペレーター向けマニュアル更新' }
+                { time: '09:30', description: '朝会・サービス状況確認' },
+                { time: '10:00', description: 'オペレーション改善検討' },
+                { time: '11:00', description: 'メンバー1on1' },
+                { time: '14:00', description: 'サービス状況MTG' },
+                { time: '16:00', description: '運用改善議論' },
+                { time: '17:30', description: '事業部戦略MTG' }
             ];
         case 'Design':
             return [
@@ -74,271 +73,139 @@ const getSchedule = (roleType) => {
                 { time: '16:00', description: 'エンジニアへのデザイン引き継ぎ' },
                 { time: '18:00', description: 'デザインシステムの更新' }
             ];
+        case 'HR':
+            return [
+                { time: '09:30', description: '朝会' },
+                { time: '10:00', description: '社内MTG・学生への連絡返信' },
+                { time: '11:00', description: '学生面談' },
+                { time: '13:00', description: '学生面談' },
+                { time: '17:00', description: '定例ミーティング' },
+                { time: '18:00', description: '1on1・翌日の面接準備' }
+            ];
     }
 };
 
 const questions = [
-    // LEVEL 1
     {
         id: 'Q1',
-        text: 'どちらかというとやってみたいのは？',
+        text: 'Q1 課題への向き合い方\n\nどちらの仕事に魅力を感じますか？',
         options: [
-            { id: 'A', text: '課題を見つけて解決策を考える', nextQuestionId: 'Q2A' },
-            { id: 'B', text: '既存のモノをもっと良くしていく', nextQuestionId: 'Q2B' },
-        ],
-    },
-    // LEVEL 2
-    {
-        id: 'Q2A',
-        text: 'チームでの自分の動き方は？',
-        options: [
-            { id: 'A', text: '周りの人を巻き込んで引っ張る', nextQuestionId: 'Q3A' },
-            { id: 'B', text: 'チームや相手をよくみてサポートする', nextQuestionId: 'Q3B' },
+            { id: 'A', text: '新しい課題を見つけ、解決策を考える', points: { PdM: 2, Sales: 2, Legal: 2, Marketing: 2 }, nextQuestionId: 'Q2' },
+            { id: 'B', text: 'すでにある仕組みやサービスをより良くする', points: { CS: 2, BX: 2, Design: 2, DataOps: 2 }, nextQuestionId: 'Q2' },
         ],
     },
     {
-        id: 'Q2B',
-        text: 'チームでの自分の動き方は？',
+        id: 'Q2',
+        text: 'Q2 チームでの役割\n\nチームで動くときの自分はどちらに近いですか？',
         options: [
-            { id: 'C', text: '周りの人を巻き込んで引っ張る', nextQuestionId: 'Q3C' },
-            { id: 'D', text: 'チームや相手をよくみてサポートする', nextQuestionId: 'Q3D' },
-        ],
-    },
-    // LEVEL 3
-    {
-        id: 'Q3A',
-        text: 'やりがいを感じるのはどっち？',
-        options: [
-            { id: 'A', text: '眼にみえる成果や反応があること', nextQuestionId: 'Q4A' },
-            { id: 'B', text: '見えにくくても裏で機能していること', nextQuestionId: 'Q4B' },
+            { id: 'A', text: '周りを巻き込みながら方向性を決めていく', points: { Sales: 2, PdM: 2, Marketing: 2 }, nextQuestionId: 'Q3' },
+            { id: 'B', text: 'メンバーや相手を見ながら支え、チームを前に進める', points: { CS: 2, Legal: 2, BX: 2, Design: 2, DataOps: 2 }, nextQuestionId: 'Q3' },
         ],
     },
     {
-        id: 'Q3B',
-        text: 'やりがいを感じるのはどっち？',
+        id: 'Q3',
+        text: 'Q3 やりがいを感じる瞬間\n\nどちらの瞬間にやりがいを感じますか？',
         options: [
-            { id: 'C', text: '眼にみえる成果や反応があること', nextQuestionId: 'Q4C' },
-            { id: 'D', text: '見えにくくても裏で機能していること', nextQuestionId: 'Q4D' },
+            { id: 'A', text: '成果や反応が目に見えて返ってくるとき', points: { Sales: 2, Marketing: 2, BX: 2 }, nextQuestionId: 'Q4' },
+            { id: 'B', text: '目立たなくても仕組みがうまく機能しているとき', points: { CS: 2, Legal: 2, DataOps: 2, PdM: 2 }, nextQuestionId: 'Q4' },
         ],
     },
     {
-        id: 'Q3C',
-        text: 'やりがいを感じるのはどっち？',
+        id: 'Q4',
+        text: 'Q4 「なんで？」と聞かれたときの反応\n\n誰かに理由を聞かれたとき、自分はどちらのタイプですか？',
         options: [
-            { id: 'E', text: '眼にみえる成果や反応があること', nextQuestionId: 'Q4E' },
-            { id: 'F', text: '見えにくくても裏で機能していること', nextQuestionId: 'Q4F' },
-        ],
-    },
-    {
-        id: 'Q3D',
-        text: 'やりがいを感じるのはどっち？',
-        options: [
-            { id: 'G', text: '眼にみえる成果や反応があること', nextQuestionId: 'Q4G' },
-            { id: 'H', text: '見えにくくても裏で機能していること', nextQuestionId: 'Q4H' },
-        ],
-    },
-    // LEVEL 4
-    {
-        id: 'Q4A',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'A', text: '答えを伝えて納得させたい', resultId: 'A' },
-            { id: 'B', text: '一緒に考えて納得できる形を探したい', resultId: 'B' },
-        ],
-    },
-    {
-        id: 'Q4B',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'C', text: '答えを伝えて納得させたい', resultId: 'C' },
-            { id: 'D', text: '一緒に考えて納得できる形を探したい', resultId: 'D' },
-        ],
-    },
-    {
-        id: 'Q4C',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'E', text: '答えを伝えて納得させたい', resultId: 'E' },
-            { id: 'F', text: '一緒に考えて納得できる形を探したい', resultId: 'F' },
-        ],
-    },
-    {
-        id: 'Q4D',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'G', text: '答えを伝えて納得させたい', resultId: 'G' },
-            { id: 'H', text: '一緒に考えて納得できる形を探したい', resultId: 'H' },
-        ],
-    },
-    {
-        id: 'Q4E',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'I', text: '答えを伝えて納得させたい', resultId: 'I' },
-            { id: 'J', text: '一緒に考えて納得できる形を探したい', resultId: 'J' },
-        ],
-    },
-    {
-        id: 'Q4F',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'K', text: '答えを伝えて納得させたい', resultId: 'K' },
-            { id: 'L', text: '一緒に考えて納得できる形を探したい', resultId: 'L' },
-        ],
-    },
-    {
-        id: 'Q4G',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'M', text: '答えを伝えて納得させたい', resultId: 'M' },
-            { id: 'N', text: '一緒に考えて納得できる形を探したい', resultId: 'N' },
-        ],
-    },
-    {
-        id: 'Q4H',
-        text: '「なんで？」と聞かれたときの反応は？',
-        options: [
-            { id: 'O', text: '答えを伝えて納得させたい', resultId: 'O' },
-            { id: 'P', text: '一緒に考えて納得できる形を探したい', resultId: 'P' },
+            { id: 'A', text: '理由やロジックを整理して説明する', points: { PdM: 2, Legal: 2, DataOps: 2 }, isLast: true },
+            { id: 'B', text: '相手と一緒に考えながら納得できる答えを探す', points: { CS: 2, Marketing: 2, BX: 2, Design: 2, Sales: 2 }, isLast: true },
         ],
     },
 ];
 
 const results = {
-    A: {
-        id: 'A',
-        title: 'Product Manager (PdM)',
-        description: '役割：プロダクトの新機能や機能変更を考える司令塔。顧客の課題とビジネス目標をつなぐ人。',
-        quote: '“ユーザーと事業の間に立つ、意思決定の中心”',
-        tags: ['創造型', 'リード型', '前線系', 'ロジック系'],
-        schedule: getSchedule('PdM'),
-    },
-    B: {
-        id: 'B',
+    Sales: {
+        id: 'Sales',
         title: '営業部',
-        description: '役割：企業にSansanを導入してもらうために提案・交渉を行う。顧客の課題を理解し、導入のきっかけをつくる。',
-        quote: '”一番最初の出会いをつくる”',
-        tags: ['創造型', 'リード型', '前線系', '共感系'],
+        description: '役割：顧客との対話を通じて顕在・潜在の課題を引き出し、事業成長につながる価値や解決策を提案する役割。',
+        quote: '“顧客のまだ見えていない課題を見つけ、成長への道筋を提案する人”',
+        tags: [],
         schedule: getSchedule('Sales'),
     },
-    C: {
-        id: 'C',
-        title: '法務部',
-        description: '役割：契約やリスク管理などを通じて、Sansanのビジネスを裏から支える。ルールとビジネスを両立させる仕事。',
-        quote: '”攻めも守りもこなす、会社の番人”',
-        tags: ['創造型', '伴走型', 'バックで支える系', 'ロジック系'],
-        schedule: getSchedule('Legal'),
+    HR: {
+        id: 'HR',
+        title: '人事部',
+        description: '役割：採用・育成・評価・制度設計など、「人」に関するすべてを担当。社員がいきいきと働ける環境をつくり、会社の成長を人の力で押し上げる。',
+        quote: '“人と組織の可能性を切り開き、世界を変える人”',
+        tags: [],
+        schedule: getSchedule('HR'),
     },
-    D: {
-        id: 'D',
+    Marketing: {
+        id: 'Marketing',
+        title: 'マーケティング部',
+        description: '役割：イベントやコンテンツを通じて、まだSansanを知らない企業との最初の接点をつくる仕事。',
+        quote: '“まだ未開拓な領域に、新しい当たり前を届け世界を変える人”',
+        tags: [],
+        schedule: getSchedule('Marketing'),
+    },
+    CS: {
+        id: 'CS',
         title: 'カスタマーサクセス部（CS）',
-        description: '役割：Sansanを導入した顧客に寄り添い、プロダクトの価値を最大化するための支援、伴走を行う',
-        quote: '”顧客とゴールまで一緒に走るパートナー”',
-        tags: ['創造型', '伴走型', 'バックで支える系', '共感系'],
+        description: '役割：サービス導入後の顧客に伴走しながら変化する課題やニーズを捉え、プロダクトの価値を最大化できるよう活用支援や改善提案を行う役割。',
+        quote: '“顧客の挑戦に伴走し、価値を最大化する人”',
+        tags: [],
         schedule: getSchedule('CS'),
     },
-    E: {
-        id: 'E',
-        title: 'マーケティング部',
-        description: '役割：イベントやコンテンツを通じてSansanを広め、興味を持ってもらうための最初の接点をつくる。',
-        quote: '”まだ知らない誰かに届ける、Sansanの語り部”',
-        tags: ['改善・洗練型', 'リード型', '前線系', 'ロジック系'],
-        schedule: getSchedule('Marketing'),
-    },
-    F: {
-        id: 'F',
-        title: 'ブランドエクスペリエンス部（BX）',
-        description: '役割：ノベルティやブランド表現など、Sansanを「見せる」部分を担当。対外的な印象や世界観をつくる。',
-        quote: '”Sansanらしさをデザインで伝えるチーム”',
-        tags: ['改善・洗練型', 'リード型', '前線系', '共感系'],
-        schedule: getSchedule('BX'),
-    },
-    G: {
-        id: 'G',
-        title: 'データ化オペレーションマネージャー',
-        description: '役割：名刺などの情報を正確にデータ化するプロセスを管理する仕事。AIと人をどう組み合わせるかを設計する。',
-        quote: '“AIと人を最適配置する、データ化の設計者”',
-        tags: ['改善・洗練型', 'リード型', 'バックで支える系', 'ロジック系'],
-        schedule: getSchedule('DataOps'),
-    },
-    H: {
-        id: 'H',
-        title: 'プロダクトデザイングループ',
-        description: '役割：プロダクトのUIや画面を設計するチーム。使いやすさ・わかりやすさを追求する。',
-        quote: '“ユーザー体験を設計する”',
-        tags: ['改善・洗練型', 'リード型', 'バックで支える系', '共感系'],
-        schedule: getSchedule('Design'),
-    },
-    I: {
-        id: 'I',
-        title: 'Product Manager (PdM)',
-        description: '役割：プロダクトの新機能や機能変更を考える司令塔。顧客の課題とビジネス目標をつなぐ人。',
-        quote: '“ユーザーと事業の間に立つ、意思決定の中心”',
-        tags: ['改善・洗練型', '伴走型', '前線系', 'ロジック系'],
+    PdM: {
+        id: 'PdM',
+        title: 'プロダクトマネージャー',
+        description: '役割：顧客や社会の課題を踏まえ、本当に価値のある解決策かを考え抜き、エンジニア・デザイナー・営業など多くの関係者と協力しながらプロダクトとして実現し、その価値が顧客に届くまで牽引する役割。',
+        quote: '“価値ある解決策を見極め、プロダクトの進化を牽引する人”',
+        tags: [],
         schedule: getSchedule('PdM'),
     },
-    J: {
-        id: 'J',
-        title: 'マーケティング部',
-        description: '役割：イベントやコンテンツを通じてSansanを広め、興味を持ってもらうための最初の接点をつくる。',
-        quote: '”まだ知らない誰かに届ける、Sansanの語り部”',
-        tags: ['改善・洗練型', '伴走型', '前線系', '共感系'],
-        schedule: getSchedule('Marketing'),
-    },
-    K: {
-        id: 'K',
-        title: 'データ化オペレーションマネージャー',
-        description: '役割：名刺などの情報を正確にデータ化するプロセスを管理する仕事。AIと人をどう組み合わせるかを設計する。',
-        quote: '“AIと人を最適配置する、データ化の設計者”',
-        tags: ['改善・洗練型', '伴走型', 'バックで支える系', 'ロジック系'],
-        schedule: getSchedule('DataOps'),
-    },
-    L: {
-        id: 'L',
-        title: '法務部',
-        description: '役割：契約やリスク管理などを通じて、Sansanのビジネスを裏から支える。ルールとビジネスを両立させる仕事。',
-        quote: '”攻めも守りもこなす、会社の番人”',
-        tags: ['改善・洗練型', '伴走型', 'バックで支える系', '共感系'],
-        schedule: getSchedule('Legal'),
-    },
-    M: {
-        id: 'M',
-        title: '営業部',
-        description: '役割：企業にSansanを導入してもらうために提案・交渉を行う。顧客の課題を理解し、導入のきっかけをつくる。',
-        quote: '”一番最初の出会いをつくる”',
-        tags: ['創造型', 'リード型', 'バックで支える系', 'ロジック系'],
-        schedule: getSchedule('Sales'),
-    },
-    N: {
-        id: 'N',
+    BX: {
+        id: 'BX',
         title: 'ブランドエクスペリエンス部（BX）',
-        description: '役割：ノベルティやブランド表現など、Sansanを「見せる」部分を担当。対外的な印象や世界観をつくる。',
-        quote: '”Sansanらしさをデザインで伝えるチーム”',
+        description: '役割：ノベルティ、イベント、ビジュアルなどを通して、Sansanの“見え方”と“感じ方”を設計するチーム。',
+        quote: '“Sansanという体験を伝え、世界を変える人”',
         tags: [],
         schedule: getSchedule('BX'),
     },
-    O: {
-        id: 'O',
+    Legal: {
+        id: 'Legal',
+        title: '法務部',
+        description: '役割：契約やリスク管理だけでなく、事業部と早い段階から連携し、法律だけでなく会社の信頼や評判への影響も考えながら、ビジネスを前に進める仕組みや新たな価値を設計・提案する役割。',
+        quote: '“事業を前に進めるルールと価値を設計する人”',
+        tags: [],
+        schedule: getSchedule('Legal'),
+    },
+    DataOps: {
+        id: 'DataOps',
+        title: 'データ化オペレーションマネージャー',
+        description: '役割：名刺などのアナログデータを、AIと人の力で正確なデータに変える仕組みを設計・管理する仕事。',
+        quote: '“技術と人と仕組みで、価値の高いデータを安定して届け、世界を変える人”',
+        tags: [],
+        schedule: getSchedule('DataOps'),
+    },
+    Design: {
+        id: 'Design',
         title: 'プロダクトデザイングループ',
         description: '役割：プロダクトのUIや画面を設計するチーム。使いやすさ・わかりやすさを追求する。',
         quote: '“ユーザー体験を設計する”',
         tags: [],
         schedule: getSchedule('Design'),
-    },
-    P: {
-        id: 'P',
-        title: 'カスタマーサクセス部（CS）',
-        description: '役割：Sansanを導入した顧客に寄り添い、プロダクトの価値を最大化するための支援、伴走を行う',
-        quote: '”顧客とゴールまで一緒に走るパートナー”',
-        tags: [],
-        schedule: getSchedule('CS'),
-    },
+    }
 };
 
 // --- App Logic ---
 
 let currentQuestionId = 'Q1';
 let history = [];
+let currentScores = {};
+
+function initScores() {
+    return {
+        PdM: 0, Sales: 0, Legal: 0, Marketing: 0, CS: 0, BX: 0, DataOps: 0, Design: 0, HR: 0
+    };
+}
 
 // DOM Elements
 const screens = {
@@ -370,11 +237,10 @@ const resultElements = {
 function switchScreen(screenName) {
     Object.values(screens).forEach(screen => {
         screen.classList.add('hidden');
-        screen.classList.remove('active'); // For any future CSS animations
+        screen.classList.remove('active');
     });
     screens[screenName].classList.remove('hidden');
 
-    // Simple fade in effect
     screens[screenName].style.opacity = 0;
     setTimeout(() => {
         screens[screenName].style.opacity = 1;
@@ -385,7 +251,7 @@ function renderQuestion(questionId) {
     const question = questions.find(q => q.id === questionId);
     if (!question) return;
 
-    questionElements.text.textContent = question.text;
+    questionElements.text.innerHTML = question.text.replace(/\n/g, '<br>');
     questionElements.options.innerHTML = '';
 
     question.options.forEach(option => {
@@ -399,7 +265,6 @@ function renderQuestion(questionId) {
         questionElements.options.appendChild(btn);
     });
 
-    // Show/Hide back button
     if (history.length > 0) {
         buttons.back.style.display = 'inline-flex';
     } else {
@@ -415,7 +280,6 @@ function renderResult(resultId) {
     resultElements.quote.textContent = result.quote;
     resultElements.description.textContent = result.description;
 
-    // Render tags
     resultElements.tags.innerHTML = '';
     if (result.tags) {
         result.tags.forEach(tag => {
@@ -426,7 +290,6 @@ function renderResult(resultId) {
         });
     }
 
-    // Render schedule
     resultElements.schedule.innerHTML = '';
     if (result.schedule && result.schedule.length > 0) {
         const scheduleContainer = document.createElement('div');
@@ -443,7 +306,7 @@ function renderResult(resultId) {
         result.schedule.forEach((item, index) => {
             const row = document.createElement('div');
             row.className = 'schedule-row';
-            row.style.animationDelay = `${index * 0.1}s`; // Stagger animation
+            row.style.animationDelay = `${index * 0.1}s`;
 
             row.innerHTML = `
                 <div class="schedule-time">
@@ -467,15 +330,33 @@ function renderResult(resultId) {
 function handleStart() {
     currentQuestionId = 'Q1';
     history = [];
+    currentScores = initScores();
     renderQuestion(currentQuestionId);
     switchScreen('question');
 }
 
 function handleOptionSelect(option) {
-    history.push(currentQuestionId);
+    history.push({
+        questionId: currentQuestionId,
+        scores: { ...currentScores }
+    });
 
-    if (option.resultId) {
-        renderResult(option.resultId);
+    if (option.points) {
+        for (const [role, points] of Object.entries(option.points)) {
+            currentScores[role] = (currentScores[role] || 0) + points;
+        }
+    }
+
+    if (option.isLast) {
+        let maxScore = -1;
+        let bestRole = 'Sales';
+        for (const [role, score] of Object.entries(currentScores)) {
+            if (score > maxScore) {
+                maxScore = score;
+                bestRole = role;
+            }
+        }
+        renderResult(bestRole);
         switchScreen('result');
     } else if (option.nextQuestionId) {
         currentQuestionId = option.nextQuestionId;
@@ -488,8 +369,9 @@ function handleBack() {
         switchScreen('start');
         return;
     }
-    const prevId = history.pop();
-    currentQuestionId = prevId;
+    const prevState = history.pop();
+    currentQuestionId = prevState.questionId;
+    currentScores = { ...prevState.scores };
     renderQuestion(currentQuestionId);
 }
 
