@@ -128,6 +128,9 @@ const results = {
         quote: '“顧客のまだ見えていない課題を見つけ、成長への道筋を提案する人”',
         tags: [],
         schedule: getSchedule('Sales'),
+        sansanRashisa: '成果をSlackや社内の場で称え合う文化があり、自分が得た知識や成功事例をオープンにシェアする雰囲気が強い。',
+        jobInterest: '顧客の課題を引き出して最適な提案につなげられること、数字や成果が見えやすいこと、0から価値を生み出す実感を得られることが魅力として挙げられていた。',
+        sansanGrowth: '年齢に関係なく周囲を巻き込みながら動く力が身についたこと、知識共有や相互称賛の文化の中で主体的に動けるようになったことが特徴として語られていた。'
     },
     HR: {
         id: 'HR',
@@ -136,6 +139,9 @@ const results = {
         quote: '“人と組織の可能性を切り開き、世界を変える人”',
         tags: [],
         schedule: getSchedule('HR'),
+        sansanRashisa: '会議や定例の中で「その施策の意思意図は何か」「相手の体験を想像しているか」といった問いが自然に飛び交う。ミスが起きても感情的に責めるのではなく、「なぜそうなったのか」を深く考える文化がある。また、Valuesが社内の共通言語となっており、全員が同じ方向性を見て働いている。',
+        jobInterest: '相手の課題を探りながら最適な提案につなげられること、リアルな声を改善に生かせられること、共感する仲間を増やすことで組織成長に直接貢献できることに面白さがある。',
+        sansanGrowth: 'ロジカルさと熱量の両方を鍛えられる環境であり、変化への耐性がついた、日常的に「なぜ？」を考えるようになった、自分の意思を相手に伝えられるようになったという変化が挙げられていた。'
     },
     Marketing: {
         id: 'Marketing',
@@ -144,6 +150,9 @@ const results = {
         quote: '“まだ未開拓な領域に、新しい当たり前を届け世界を変える人”',
         tags: [],
         schedule: getSchedule('Marketing'),
+        sansanRashisa: '全社会議で会社全体の方針を揃える機会があること、マーケだけでなくインサイドセールスや営業とも頻繁に連携すること、「意思意図」「体験を想像する」といった言葉が日常的に使われることが特徴。さらに、意思決定のスピードが速く、部長レビューの場で方針転換が起きることもある。',
+        jobInterest: '多様なメンバーを巻き込みながらプロジェクトを進められること、ブランドやサービスの体験設計に深く関われること、0から価値をつくること、出会いの価値を広げる仕掛けを考えられることが魅力として挙がっていた。',
+        sansanGrowth: '経験豊富な中途メンバーの知見を借りながら、大きなイベントのオーナーを任されるなど、挑戦しながら育つ環境がある。物事を多角的に捉える力や、チーム外も巻き込みながら複雑な仕事を進める力、変化に柔軟に対応する力が身についたという声が多かった。'
     },
     CS: {
         id: 'CS',
@@ -152,6 +161,9 @@ const results = {
         quote: '“顧客の挑戦に伴走し、価値を最大化する人”',
         tags: [],
         schedule: getSchedule('CS'),
+        sansanRashisa: '顧客ヒアリングを非常に多く行っており、その場にエンジニアやデザイナーが関心を持って参加することもある。営業やCSが協力してヒアリング機会をつくりやすい点も特徴。また、1つのアポイントで伝えられる価値を最大化するために事前準備や内容の密度が高い。',
+        jobInterest: '顧客の課題を探り、改善に生かし、顧客の声と開発をつなぐ橋渡し役になれることが面白さとして挙げられていた。既存価値を1から10へ育てていく役割にも近い。',
+        sansanGrowth: '高い基準とノウハウが共有されており、細かな研修資料や実践を通じて質の高い顧客対応を体得できる。また、UXリサーチやマーケティングリサーチを経てPdMへのキャリアチェンジにつながった例もあり、役割を広げやすい環境がある。'
     },
     PdM: {
         id: 'PdM',
@@ -160,14 +172,20 @@ const results = {
         quote: '“価値ある解決策を見極め、プロダクトの進化を牽引する人”',
         tags: [],
         schedule: getSchedule('PdM'),
+        sansanRashisa: '徹底してユーザー体験を想像する文化があり、ユーザーの言葉だけでなく行動や状況まで深掘りして課題を言語化する。意思決定や変化のスピードも非常に速く、グローバルなチームとの連携も発生する。ユーザーの本質的課題を突き詰める姿勢が強い。',
+        jobInterest: '顧客課題の発見、ユーザーの声の活用、開発との橋渡し、プロダクトの中心での意思決定、0から1、1から10の価値創出など、非常に広い面白さがあると語られていた。',
+        sansanGrowth: '大規模プロダクトにおける「作る責任」と同時に「作らない責任」も学べること、変化の速い環境で意思決定力が磨かれること、複数事業や複数業界の課題に向き合えることが特徴。未来を信じて前進し続ける姿勢も大きな学びとして挙げられていた。'
     },
     BX: {
         id: 'BX',
         title: 'ブランドエクスペリエンス部（BX）',
-        description: '役割：ノベルティ、イベント、ビジュアルなどを通して、Sansanの“見え方”と“感じ方”を設計するチーム。',
+        description: '役割：ノベルティ、イベント、ビジュアルなどをを通して、Sansanの“見え方”と“感じ方”を設計するチーム。',
         quote: '“Sansanという体験を伝え、世界を変える人”',
         tags: [],
         schedule: getSchedule('BX'),
+        sansanRashisa: 'どの部署の人も「いいものを作ろう」という姿勢を持っていて、言葉もデザインも含めて体験をよりよくしようとする文化がある。営業資料をつくる場合でも営業、マーケ、BXなど複数部署が最初から一緒に入りながら、意思決定は速く進む。',
+        jobInterest: 'ブランドやサービスの体験設計に深く関われること、多様なメンバーと協働できること、アイデアや表現で出会いの価値を増幅できること、既存価値をさらに強くしていけることが魅力として挙げられていた。',
+        sansanGrowth: '「Sansanのクリエイターはビジネスに強いクリエイター」という感覚があり、ビジネス視点の解像度が高まったという声があった。また、ブランディングを一度の施策ではなく、あらゆる接点で少しずつ積み重ねていくものとして捉えるようになったという変化も挙げられていた。'
     },
     Legal: {
         id: 'Legal',
@@ -176,6 +194,9 @@ const results = {
         quote: '“事業を前に進めるルールと価値を設計する人”',
         tags: [],
         schedule: getSchedule('Legal'),
+        sansanRashisa: '「明日やるか」ではなく「今日やれるか」を考えるスピード感があり、現場から直接相談が来てその場で解決し、受注につながることもある。法務でありながら、セミナー登壇、PoC提案、営業、新機能モック制作まで関わるケースもあり、職域が広い。また、個人情報保護士資格の取得が必須であることも特徴として挙げられていた。',
+        jobInterest: '法的な視点から事業やプロジェクトを支援できるだけでなく、仕組みづくりや価値創出、プロダクトや企画の意思決定にも関われる点が面白さとして語られていた。法務でありながら事業を直接前に進めている実感が大きい。',
+        sansanGrowth: '「NOと言わず、どうすれば合法的に実現できるかを考える」バランス感覚が養われたという声があった。また、会社の成長と自分の成長が同期しており、新規事業、海外子会社対応、インシデント対応など、想像以上に幅広い経験を積める環境であることが特徴として挙げられていた。'
     },
     DataOps: {
         id: 'DataOps',
@@ -184,6 +205,9 @@ const results = {
         quote: '“技術と人と仕組みで、価値の高いデータを安定して届け、世界を変える人”',
         tags: [],
         schedule: getSchedule('DataOps'),
+        sansanRashisa: 'ノンエンジニアでもAIを活用しながら業務効率化や改善を推進できること、固定化されたオペレーション方針を短期間で大胆に見直すスピード感があることが特徴。不確実性が高い領域でも、見える範囲を整理した上で素早く意思決定していく文化がある。',
+        jobInterest: '数値やデータを通じて成果を実感しやすく、運用改善が組織全体にインパクトを与えること、現場からプロダクトまで広く関われること、事業基盤を支えている実感が得られることが魅力として挙げられていた。',
+        sansanGrowth: 'AIなど最新技術に触れながら仕事を進める力得られること、不確実性の中でリスクを洗い出し、ヘッジしながら推進する力が身につくこと、若いうちからスピード感ある意思決定を経験できることが大きな成長として挙げられていた。'
     },
     Design: {
         id: 'Design',
@@ -192,6 +216,9 @@ const results = {
         quote: '“ユーザー体験を設計する”',
         tags: [],
         schedule: getSchedule('Design'),
+        sansanRashisa: '徹底してユーザー体験を想像する文化があり、デザインだけでなく体験の質を追求する姿勢がある。',
+        jobInterest: 'ユーザーの行動を観察し、本質的な課題を解決するプロダクトを設計することに面白さがある。',
+        sansanGrowth: 'ビジネス視座を持ったデザイナーとして、プロダクトの成長を牽引する力が養われる。'
     }
 };
 
@@ -231,6 +258,7 @@ const resultElements = {
     description: document.getElementById('result-description'),
     tags: document.getElementById('tags-container'),
     schedule: document.getElementById('schedule-wrapper'),
+    details: document.getElementById('result-details'),
 };
 
 // Utils
@@ -280,8 +308,26 @@ function renderResult(resultId) {
     resultElements.quote.textContent = result.quote;
     resultElements.description.textContent = result.description;
 
+    // Render detailed info
+    if (resultElements.details) {
+        resultElements.details.innerHTML = `
+            <div class="detail-section">
+                <h3 class="detail-title">Sansanらしさ</h3>
+                <p class="detail-text">${result.sansanRashisa || ''}</p>
+            </div>
+            <div class="detail-section">
+                <h3 class="detail-title">仕事の面白さ</h3>
+                <p class="detail-text">${result.jobInterest || ''}</p>
+            </div>
+            <div class="detail-section">
+                <h3 class="detail-title">Sansanだからこその成長</h3>
+                <p class="detail-text">${result.sansanGrowth || ''}</p>
+            </div>
+        `;
+    }
+
     resultElements.tags.innerHTML = '';
-    if (result.tags) {
+    if (result.tags && result.tags.length > 0) {
         result.tags.forEach(tag => {
             const span = document.createElement('span');
             span.className = 'tag';
