@@ -241,17 +241,41 @@ body {
 }
 
 .result-quote {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
-    margin-bottom: 2.5rem;
+    margin: 0 auto 3rem;
     position: relative;
-    padding: 1.5rem;
-    background: linear-gradient(to right, #f0f7ff, #fff);
-    border-left: 5px solid var(--primary-color);
-    border-radius: 0 12px 12px 0;
-    font-weight: 700;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-    text-align: left;
+    padding: 2.5rem 1rem;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-quote::before,
+.result-quote::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0.15;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.result-quote::before {
+    top: 0;
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23004E98'%3E%3Cpath d='M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 7.55228 14.017 7V4C14.017 3.44772 14.4647 3 15.017 3H19.017C21.2261 3 23.017 4.79086 23.017 7V15C23.017 18.3137 20.3307 21 17.017 21H14.017ZM1.017 21L1.017 18C1.017 16.8954 1.91238 16 3.017 16H6.017C6.56928 16 7.017 15.5523 7.017 15V9C7.017 8.44772 6.56928 8 6.017 8H2.017C1.46472 8 1.017 7.55228 1.017 7V4C1.017 3.44772 1.46472 3 2.017 3H6.017C8.22614 3 10.017 4.79086 10.017 7V15C10.017 18.3137 7.33066 21 4.017 21H1.017Z'/%3E%3C/svg%3E");
+}
+
+.result-quote::after {
+    bottom: 0;
+    right: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23004E98'%3E%3Cpath d='M10.017 3L10.017 6C10.017 7.10457 9.12162 8 8.017 8H5.017C4.46472 8 4.017 8.44772 4.017 9V15C4.017 15.5523 4.46472 16 5.017 16H9.017C9.56928 16 10.017 16.4477 10.017 17V20C10.017 20.5523 9.56928 21 9.017 21H5.017C2.80786 21 1.017 19.2091 1.017 17V9C1.017 5.68629 3.7033 3 7.017 3H10.017ZM23.017 3L23.017 6C23.017 7.10457 22.1216 8 21.017 8H18.017C17.4647 8 17.017 8.44772 17.017 9V15C17.017 15.5523 17.4647 16 18.017 16H22.017C22.5693 16 23.017 16.4477 23.017 17V20C23.017 20.5523 22.5693 21 22.017 21H18.017C15.8079 21 14.017 19.2091 14.017 17V9C14.017 5.68629 16.7033 3 20.017 3H23.017Z'/%3E%3C/svg%3E");
 }
 
 .result-description {
@@ -416,9 +440,9 @@ body {
     transition: transform 0.2s;
 }
 
-.schedule-content:hover {
+/* .schedule-content:hover {
     transform: translateY(-3px);
-}
+} */
 
 .schedule-desc {
     font-size: 1rem;
