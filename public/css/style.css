@@ -24,6 +24,8 @@ body {
     align-items: center;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
 }
 
 /* App Container */
@@ -90,6 +92,7 @@ body {
     cursor: pointer;
     letter-spacing: 0.05em;
     outline: none;
+    touch-action: manipulation;
 }
 
 .btn-primary {
@@ -178,6 +181,7 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
     min-height: 100px; /* 高さを統一 */
+    touch-action: manipulation;
 }
 
 .option-btn:hover {
